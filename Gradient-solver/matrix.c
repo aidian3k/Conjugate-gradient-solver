@@ -112,3 +112,23 @@ void copyMatrix(Matrix *ans,Matrix *mat)
     for(int i=0;i<mat->r;i++)
         for(int j=0;j<mat->c;j++) ans->data[i][j]=mat->data[i][j];
 }
+
+void putentryMatrix(Matrix* mat, int i, int j, double num)
+{
+  if (i >= 0 && i < mat->r && j >= 0 && j <= mat->c)
+  	mat->data[i][j] = num;
+}
+
+void addtoentryMatrix(Matrix *mat, int i, int j, double num)
+{
+  if (i >= 0 && i < mat->r && j >= 0 && j <= mat->c)
+    mat->data[i][j] += num;
+}
+
+double getentryMatrix(Matrix* mat, int i, int j )
+{
+  if (i >= 0 && i < mat->r && j >= 0 && j <= mat->c)
+    return mat->data[i][j];
+        else
+                return -999;
+}
