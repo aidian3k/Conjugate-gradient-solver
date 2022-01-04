@@ -2,10 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Matrix * readFromFile(char * fname) {
+Matrix * readFromFile(FILE *fin) {
 		int r,c;
 		int ir, ic;
-		FILE * fin =  fopen(fname,"r");
 		Matrix * mat = NULL;
 		if (fin != NULL) {
 			fscanf(fin,"%d %d",&r,&c);
@@ -15,11 +14,11 @@ Matrix * readFromFile(char * fname) {
 					for (ic = 0; ic < c; ic++)
 						fscanf(fin, "%lf",&(mat->data[ir][ic]));
 			} else {
-						fprintf(stderr,"Wystąpił problem podczas tworzenia macierzy o rozmiarach %d x %d dla danych z pliku: %s\n", r, c, fname);
+						fprintf(stderr,"Wystąpił problem podczas tworzenia macierzy o rozmiarach %d x %d\n", r, c);
 			}
-            fclose(fin);
+            	fclose(fin);
 			} else {
-				    fprintf(stderr,"Nie mogę otworzyć pliku o nazwie: %s\n", fname);
+				    fprintf(stderr,"Nie mogę otworzyć pliku\n");
 				}
 		return mat;
 }
