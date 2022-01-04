@@ -28,4 +28,10 @@ void multiplybynumMatrix(Matrix *ans,Matrix *mat1,double num);
 
 void copyMatrix(Matrix *ans,Matrix *mat);
 
+void putentryMatrix(Matrix* mat, int i, int j, double num);
+
+void addtoentryMatrix(Matrix *mat, int i, int j, double num);
+
+double getentryMatrix(Matrix* mat, int i, int j );
+
 #endif
